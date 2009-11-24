@@ -25,6 +25,7 @@ void printHelp(const char *progName)
 	std::cout << "Options:" << std::endl;
 	std::cout << "-c <configfile>\t" << "path to the configuration file" << std::endl;
 	std::cout << "-m <message>\t" << "message to send to the recipients" << std::endl;
+	std::cout << "-m <subject>\t" << "subject to set" << std::endl;
 	std::cout << std::endl;
 	std::cout << "If a message is piped to " << progName << ", the \"-m\" parameter may be omitted" << std::endl;
 	std::cout << std::endl;
@@ -42,6 +43,7 @@ int main( int argc, char* argv[] )
 {
 	std::string config;
 	std::string message;
+	std::string subject;
 	bool initialized(true);
 
 	std::string param;
@@ -67,6 +69,16 @@ int main( int argc, char* argv[] )
 
 			param = argv[i];
 			message = param;
+		}
+
+		if (param == "-s")
+		{
+			++i;
+			if ((initialized = testArgCount(argc, i)) == false)
+				break;
+
+			param = argv[i];
+			subject = param;
 		}
 	}
 
@@ -137,7 +149,7 @@ int main( int argc, char* argv[] )
 						receiversVect.push_back( receivers.substr(oldpos) );
 
 
-					SendXMPP sendXMPP(username, password, receiversVect, message);
+					SendXMPP sendXMPP(username, password, receiversVect, message, subject);
 
 					return 0;
 				}
