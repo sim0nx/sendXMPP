@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 
 std::string removeSpace(const std::string &to)
@@ -20,11 +21,41 @@ std::string removeSpace(const std::string &to)
 
 int main( int argc, char* argv[] )
 {
-	if (argc == 2)
+	std::string config;
+	std::string message;
+
+	std::string param;
+	for(int i=0;i<argc;++i)
 	{
-		std::string message(argv[1]);
+		param = argv[i];
+
+		if (param == "-c")
+		{
+			param = argv[++i];
+			config = param;
+		}
+
+		if (param == "-m")
+		{
+			param = argv[++i];
+			message = param;
+		}
+	}
+
+	if (!isatty(fileno(stdin)))
+	{
+		message.clear();
+                while(!std::cin.eof())
+			message.push_back(std::cin.get());
+
+		message.erase( message.end()-2, message.end() );
+	}
+
+	
+	if ((config.size() > 0) && (message.size() > 0))
+	{
 		std::string line;
-		std::ifstream myfile ("/etc/sendXMPP.conf");
+		std::ifstream myfile (config.c_str());
 		std::vector<std::string> receiversVect;
 
 		if (myfile.is_open())
