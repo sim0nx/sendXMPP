@@ -42,7 +42,7 @@ class SendXMPPConnectionListener : public ConnectionListener
 		j->send(s);
 	}
 
-	virtual bool onTLSConnect ( const CertInfo &info ){}
+	virtual bool onTLSConnect ( const CertInfo &info ){ return true; }
 
 
 
