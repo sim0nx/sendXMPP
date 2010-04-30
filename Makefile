@@ -1,7 +1,6 @@
 #--- BUILD ---
 CXX=g++
-LDFLAGS = -lgnutls -ltasn1 -lz -lgcrypt -lgpg-error -lresolv -lpthread
-#LDFLAGS= -lgnutls -lpthread
+LDFLAGS= -lgnutls -lpthread -lz
 DLDFLAGS = -lgloox
 INCLUDES =
 SLIBS = /usr/lib/libgloox.a /usr/lib/libidn.a
