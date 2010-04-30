@@ -4,8 +4,8 @@ DLDFLAGS = -lgloox
 INCLUDES =
 SLIBS = /usr/lib/libgloox.a /usr/lib/libidn.a
 #SLIBS = /usr/lib/libgloox.a /usr/lib/libgnutls.a /usr/lib/libtasn1.a /usr/lib/libz.a /usr/lib/libgcrypt.a /usr/lib/libgpg-error.a /usr/lib/libresolv.a /usr/lib/libidn.a
-#CXXFLAGS = -Wall -O3 -minline-stringops-dynamically -pipe -fomit-frame-pointer
-CXXFLAGS = -Wall -pedantic -ggdb -g3 -O
+CXXFLAGS = -Wall -O3 -minline-stringops-dynamically -pipe -fomit-frame-pointer
+#CXXFLAGS = -Wall -pedantic -ggdb -g3 -O
 
 OBJS = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 
@@ -18,7 +18,10 @@ sendXMPP: $(OBJS)
 
 dynamic: $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendXMPP $^
-	#strip sendXMPP
+	strip sendXMPP
+
+debug: $(OBJS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendXMPP $^
 
 %.o: %.cpp
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c -o "$@" "$<"

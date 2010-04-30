@@ -57,7 +57,6 @@ class SendXMPPConnectionListener : public ConnectionListener
 	void sendMessage(const std::string &receiver, const std::string &message, const std::string &subject="")
 	{
 		JID jidReceiver(receiver);
-		//Stanza *s = Stanza::createMessageStanza(jidReceiver, message, StanzaMessageChat, subject);
 		Message m(Message::Normal, jidReceiver, message, subject);
 		j->send(m);
 	}
