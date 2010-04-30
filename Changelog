@@ -1,0 +1,5 @@
+30.04.2010
+	<Georges Toth>:	ported to gloox 1.0
+			man page
+			remove pointers where possible
+			remove unused dynamic libraries

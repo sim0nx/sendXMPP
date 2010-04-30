@@ -1,0 +1,50 @@
+.TH "sendxmpp++" "1" "0.3" "Georges Toth" "User command"
+.SH "NAME"
+.LP 
+sendxmpp++ \- send xmpp messages from the command line
+.SH "SYNOPSIS"
+.LP 
+sendxmpp++ [options]
+.SH "DESCRIPTION"
+.LP 
+sendxmpp++ is a program to send XMPP messages from the command line.
+.SH "OPTIONS"
+.LP 
+.TP 
+\fB\-c\fR <\fIconfigfile\fP>
+Path to the configuration file
+.TP 
+\fB\-m\fR <\fImessage\fP>
+Message to send to the recipients
+.TP 
+\fB\-s\fR <\fIsubject\fP>
+Subject to set
+
+
+If a message is piped to ./sendxmpp++, the "\-m" parameter may be omitted
+.SH "CONFIGURATION FILE"
+You have to define a configuration file for passing as argument to sendxmpp++ containing the xmpp\-account and recipients the messages should go to.
+
+e.g.:
+.br 
+	username = sendxmpp@jabber.example.org/ressource
+.br 
+	password = password
+.br 
+	receivers = john@doe.org
+
+.SH "EXAMPLES"
+.LP 
+To run this program the standard way type:
+.LP 
+sendxmpp++ \-c ~/.sendxmpp++.conf \-m "body of the message" \-s "subject"
+.LP 
+Alternativly you can run it as:
+.LP 
+cat "somefile" | sendxmpp++ \-c ~/.sendxmpp++.conf \-s "subject"
+.SH "AUTHORS"
+.LP 
+Georges Toth <georges@trypill.org>
+.SH "SEE ALSO"
+.LP 
+myotherprogram(2) mynextprogram(2)
