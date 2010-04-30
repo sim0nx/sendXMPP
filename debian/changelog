@@ -1,3 +1,23 @@
+sendxmpp++ (0.3-3) unstable; urgency=low
+
+  * remove wrong distribution
+  * release upload to deb.trypill.org
+
+ -- Maurizio Minelli <m.minelli@trypill.org>  Fri, 30 Apr 2010 20:30:54 +0200
+
+sendxmpp++ (0.3-2) unstable; urgency=low
+
+  * add distribution 
+
+ -- Maurizio Minelli <m.minelli@trypill.org>  Fri, 30 Apr 2010 19:37:06 +0200
+
+sendxmpp++ (0.3-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * signature refresh 
+
+ -- Maurizio Minelli <m.minelli@trypill.org>  Fri, 30 Apr 2010 19:13:07 +0200
+
 sendxmpp++ (0.3-1) unstable; urgency=low
 
   * Non-maintainer upload.

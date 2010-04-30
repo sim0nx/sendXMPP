@@ -1,5 +1,5 @@
 Source: sendxmpp++
-Section: Network
+Section: net
 Priority: extra
 Maintainer: Maurizio Minelli <m.minelli@tryill.org>, Georges Toth <georges@trypill.org>
 Build-Depends: debhelper (>= 7.0.50), libgloox-dev (>= 0.9.9)
