@@ -1,4 +1,6 @@
 *.o
 sendxmpp++
 sendXMPP.conf
-buildme.sh
+debian/sendxmpp++.substvars
+debian/sendxmpp++.debhelper.log
+debian/files

@@ -1,3 +1,11 @@
+sendxmpp++ (0.3-1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New maintainer
+  * New upstream release
+
+ -- Georges Toth <georges@trypill.org>  Fri, 30 Apr 2010 18:10:57 +0200
+
 sendxmpp++ (0.1-5) unstable; urgency=low
 
   * Non-maintainer upload.
