@@ -42,9 +42,9 @@ void printHelp(const char *progName)
 {
 	std::cout << "Usage: " << progName << " [OPTION]" << std::endl << std::endl;
 	std::cout << "Options:" << std::endl;
-	std::cout << "-c <configfile>\t" << "path to the configuration file" << std::endl;
-	std::cout << "-m <message>\t" << "message to send to the recipients" << std::endl;
-	std::cout << "-s <subject>\t" << "subject to set" << std::endl;
+	std::cout << "\t-c <configfile>\t" << "path to the configuration file" << std::endl;
+	std::cout << "\t-m <message>\t" << "message to send to the recipients" << std::endl;
+	std::cout << "\t-s <subject>\t" << "subject to set" << std::endl;
 	std::cout << std::endl;
 	std::cout << "If a message is piped to " << progName << ", the \"-m\" parameter may be omitted" << std::endl;
 	std::cout << std::endl;
