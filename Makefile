@@ -10,22 +10,24 @@ CXXFLAGS = -Wall -O3 -minline-stringops-dynamically -pipe -fomit-frame-pointer
 OBJS = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 
 
-all: sendXMPP
+all: sendxmpp++
 
-sendXMPP: $(OBJS)
+sendxmpp++: $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ ${SLIBS}
 	strip $@
 
 dynamic: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendXMPP $^
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendxmpp++ $^
 	strip sendXMPP
 
 debug: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendXMPP $^
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendxmpp++ $^
 
 %.o: %.cpp
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c -o "$@" "$<"
 
+install:
+	@cp sendxmpp++ /usr/bin/
 
 clean:
-	@rm -f $(OBJS) $(DBGS) sendXMPP
+	@rm -f $(OBJS) $(DBGS) sendxmpp++
