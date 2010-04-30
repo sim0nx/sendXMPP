@@ -13,7 +13,7 @@ OBJS = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 
 INSTALL=install
 bindir=/usr/bin
-
+mandir=/usr/share/man/man1
 
 #--- TARGETS ---
 
@@ -35,6 +35,7 @@ debug: $(OBJS)
 
 install:
 	$(INSTALL) -D "sendxmpp++" "$(DESTDIR)$(bindir)/sendxmpp++"
+	$(INSTALL) -D "sendxmpp++.1" "$(DESTDIR)$(mandir)/sendxmpp++.1"
 
 clean:
 	@rm -f $(OBJS) $(DBGS) sendxmpp++
