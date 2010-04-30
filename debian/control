@@ -1,0 +1,13 @@
+Source: sendxmpp++
+Section: Network
+Priority: extra
+Maintainer: Maurizio Minelli <m.minelli@tryill.org>
+Build-Depends: debhelper (>= 7.0.50), libgloox-dev (>= 0.9.9)
+Standards-Version: 3.8.4
+Homepage: no hampage yet?
+
+Package: sendxmpp++
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Send jabber messages
+  Send jabber messages fromt he command line, this tool is wirtten in C++ and doesn't have any dependencies.
