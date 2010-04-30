@@ -1,1 +1,17 @@
+__version 1.0__
+
 * Possibility for providing recipient list as command line argument
+* Load a default config file in users home  ~/.sendxmpp++
+* Define configuration order: (cmdline) overrides (-c config) overrides (~/.config)
+* Add error checking, more verbose stderr.cout
+* Add source code comments
+
+__version 1.1__
+
+* Add sanity check for input
+* Add support for crypted passwords
+
+
+__version 2.0__
+
+nothing yet
