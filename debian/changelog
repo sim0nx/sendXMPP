@@ -1,3 +1,10 @@
+sendxmpp++ (0.1-5) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add man page
+
+ -- Maurizio Minelli <m.minelli@trypill.org>  Fri, 30 Apr 2010 18:02:11 +0200
+
 sendxmpp++ (0.1-4) unstable; urgency=low
 
   * Non-maintainer upload.
