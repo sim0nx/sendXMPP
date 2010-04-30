@@ -1,3 +1,4 @@
 *.o
 sendxmpp++
 sendXMPP.conf
+buildme.sh
