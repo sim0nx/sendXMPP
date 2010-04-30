@@ -1,3 +1,22 @@
+/*
+    Copyright (C) 2010 Georges Toth <georges@trypill.org>
+
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
 #include "SendXMPP.h"
 #include <iostream>
 #include <fstream>
@@ -25,7 +44,7 @@ void printHelp(const char *progName)
 	std::cout << "Options:" << std::endl;
 	std::cout << "-c <configfile>\t" << "path to the configuration file" << std::endl;
 	std::cout << "-m <message>\t" << "message to send to the recipients" << std::endl;
-	std::cout << "-m <subject>\t" << "subject to set" << std::endl;
+	std::cout << "-s <subject>\t" << "subject to set" << std::endl;
 	std::cout << std::endl;
 	std::cout << "If a message is piped to " << progName << ", the \"-m\" parameter may be omitted" << std::endl;
 	std::cout << std::endl;
