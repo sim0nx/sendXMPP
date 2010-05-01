@@ -29,8 +29,8 @@ class SendXMPP
 {
  public:
 	SendXMPP(const std::string &username, const std::string &password, const std::vector<std::string> &receivers, const std::string &message,
-			const std::string &subject)
-		: j( JID(username), password ), sxConnList(&j, receivers, message, subject)
+			const std::string &subject, bool verbose)
+		: j( JID(username), password ), sxConnList(&j, receivers, message, subject, verbose)
 	{
 /*		StringList ca;
 		ca.push_back("/home/simon/root.crt");

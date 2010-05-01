@@ -1,10 +1,12 @@
 __version 1.0__
 
-* Possibility for providing recipient list as command line argument
+DONE	* Possibility for providing recipient list as command line argument
+DONE	* Add basic verbose mode
 * Load a default config file in users home  ~/.sendxmpp++
 * Define configuration order: (cmdline) overrides (-c config) overrides (~/.config)
 * Add error checking, more verbose stderr.cout
 * Add source code comments
+* Extend verbose mode
 
 __version 1.1__
 

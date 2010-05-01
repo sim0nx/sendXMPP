@@ -88,6 +88,7 @@ int main( int argc, char* argv[] )
 	std::string message;
 	std::string subject;
 	std::string receivers;
+	bool verbose(false);
 	bool initialized(true);
 
 	std::string param;
@@ -133,6 +134,11 @@ int main( int argc, char* argv[] )
 
 			param = argv[i];
 			receivers = param;
+		}
+
+		if (param == "-v")
+		{
+			verbose = true;
 		}
 	}
 
@@ -190,7 +196,7 @@ int main( int argc, char* argv[] )
 				{
 					receiversVect = splitReceivers(receivers);
 
-					SendXMPP sendXMPP(username, password, receiversVect, message, subject);
+					SendXMPP sendXMPP(username, password, receiversVect, message, subject, verbose);
 
 					return 0;
 				}

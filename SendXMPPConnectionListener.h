@@ -30,14 +30,15 @@ class SendXMPPConnectionListener : public ConnectionListener
 {
  public:
 	SendXMPPConnectionListener(Client *client, const std::vector<std::string> &receivers, const std::string &message,
-		const std::string &subject)
-		: j(client), msg(message), rcv(receivers), subj(subject)
+		const std::string &subject, bool verbose)
+		: j(client), msg(message), rcv(receivers), subj(subject), _verbose(verbose)
 	{
 	}
 
 	virtual void onConnect ()
 	{
-		//std::cout << "connected" << std::endl;
+		if (_verbose)
+			std::cout << "connected" << std::endl;
 
 		RosterManager rm(j);
 		std::vector<std::string>::iterator it;
@@ -46,12 +47,19 @@ class SendXMPPConnectionListener : public ConnectionListener
 		{
 			rm.ackSubscriptionRequest(*it, true);
 			sendMessage(*it, msg, subj);
+
+			if (_verbose)
+				std::cout << "sent message to: " << *it << std::endl;
 		}
 
 		j->disconnect();
 	}
 
-	virtual void onDisconnect ( ConnectionError e ){}
+	virtual void onDisconnect ( ConnectionError e )
+	{
+		if (_verbose)
+			std::cout << "disconnected" << std::endl;
+	}
 	
 
 	void sendMessage(const std::string &receiver, const std::string &message, const std::string &subject="")
@@ -85,4 +93,5 @@ class SendXMPPConnectionListener : public ConnectionListener
 	std::string msg;
 	std::vector<std::string> rcv;
 	std::string subj;
+	bool _verbose;
 };
