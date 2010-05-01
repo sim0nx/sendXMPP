@@ -45,6 +45,7 @@ void printHelp(const char *progName)
 	std::cout << "\t-c <configfile>\t" << "path to the configuration file" << std::endl;
 	std::cout << "\t-m <message>\t" << "message to send to the recipients" << std::endl;
 	std::cout << "\t-s <subject>\t" << "subject to set" << std::endl;
+	std::cout << "\t-r <receiver1,receiver2,...>\t" << "comma seperated list of receivers" << std::endl;
 	std::cout << std::endl;
 	std::cout << "If a message is piped to " << progName << ", the \"-m\" parameter may be omitted" << std::endl;
 	std::cout << std::endl;
@@ -58,11 +59,35 @@ bool testArgCount(const int &argc, const int &count)
 	return true;
 }
 
+std::vector<std::string> splitReceivers(const std::string &receivers)
+{
+	std::string _receivers( removeSpace(receivers) );
+	size_t oldpos(0);
+	size_t pos(0);
+	std::vector<std::string> receiversVect;
+
+	while ((pos = _receivers.find(",", pos)) != std::string::npos)
+	{
+		receiversVect.push_back( removeSpace( _receivers.substr(oldpos, pos) ) );
+
+		++pos;
+		oldpos = pos;
+	}
+
+	if (oldpos != std::string::npos)
+		receiversVect.push_back( _receivers.substr(oldpos) );
+
+
+	return receiversVect;
+}
+
+
 int main( int argc, char* argv[] )
 {
 	std::string config;
 	std::string message;
 	std::string subject;
+	std::string receivers;
 	bool initialized(true);
 
 	std::string param;
@@ -99,6 +124,16 @@ int main( int argc, char* argv[] )
 			param = argv[i];
 			subject = param;
 		}
+
+		if (param == "-r")
+		{
+			++i;
+			if ((initialized = testArgCount(argc, i)) == false)
+				break;
+
+			param = argv[i];
+			receivers = param;
+		}
 	}
 
 	if (initialized)
@@ -121,7 +156,6 @@ int main( int argc, char* argv[] )
 
 			if (myfile.is_open())
 			{
-				std::string receivers("");
 				std::string username("");
 				std::string password("");
 				size_t pos = 0;
@@ -133,8 +167,10 @@ int main( int argc, char* argv[] )
 					if ((pos = line.find("=")) != std::string::npos)
 					{
 						if (line.find("receivers") != std::string::npos)
-							receivers = line.substr(pos+1);
-						else if (line.find("username") != std::string::npos)
+						{
+							if (receivers.compare("") == 0)
+								receivers = line.substr(pos+1);
+						}else if (line.find("username") != std::string::npos)
 							username = line.substr(pos+1);
 						else if (line.find("password") != std::string::npos)
 							password = line.substr(pos+1);
@@ -143,7 +179,6 @@ int main( int argc, char* argv[] )
 
 				myfile.close();
 
-				receivers = removeSpace(receivers);
 				username = removeSpace(username);
 				password = removeSpace(password);
 
@@ -153,20 +188,7 @@ int main( int argc, char* argv[] )
 					&& (password.compare("") != 0)
 					)
 				{
-					size_t oldpos(0);
-					size_t pos(0);
-
-					while ((pos = receivers.find(",", pos)) != std::string::npos)
-					{
-						receiversVect.push_back( receivers.substr(oldpos, pos) );
-
-						++pos;
-						oldpos = pos;
-					}
-
-					if (oldpos != std::string::npos)
-						receiversVect.push_back( receivers.substr(oldpos) );
-
+					receiversVect = splitReceivers(receivers);
 
 					SendXMPP sendXMPP(username, password, receiversVect, message, subject);
 
