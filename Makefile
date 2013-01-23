@@ -16,11 +16,11 @@ mandir=/usr/share/man/man1
 
 #--- TARGETS ---
 
-all: sendxmpp++
+all: dynamic
 
-sendxmpp++: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ ${SLIBS}
-	strip $@
+static: $(OBJS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o sendxmpp++ $^ ${SLIBS}
+	strip sendxmpp++
 
 dynamic: $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendxmpp++ $^
