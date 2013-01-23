@@ -1,6 +1,6 @@
 #--- BUILD ---
 CXX=g++
-LDFLAGS= -lgnutls -lpthread -lz
+LDFLAGS= -lgnutls
 DLDFLAGS = -lgloox
 INCLUDES =
 SLIBS = /usr/lib/libgloox.a /usr/lib/x86_64-linux-gnu/libidn.a
@@ -23,7 +23,7 @@ static: $(OBJS)
 	strip sendxmpp++
 
 dynamic: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) $(LDFLAGS) -o sendxmpp++ $^
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(DLDFLAGS) -o sendxmpp++ $^
 	strip sendxmpp++
 
 debug: $(OBJS)
