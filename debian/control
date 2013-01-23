@@ -1,10 +1,10 @@
 Source: sendxmpp++
 Section: net
 Priority: extra
-Maintainer: Maurizio Minelli <m.minelli@tryill.org>, Georges Toth <georges@trypill.org>
-Build-Depends: debhelper (>= 7.0.50), libgloox-dev (>= 0.9.9)
+Maintainer: Georges Toth <georges@trypill.org>
+Build-Depends: debhelper (>= 7.0.50), libgloox-dev (>= 1.0-1)
 Standards-Version: 3.8.4
-Homepage: no homepage
+Homepage: https://github.com/sim0nx/sendXMPP
 
 Package: sendxmpp++
 Architecture: any

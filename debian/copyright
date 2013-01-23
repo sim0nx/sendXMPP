@@ -1,10 +1,10 @@
 This work was packaged for Debian by:
 
-    Maurizio Minelli <m.minelli@trypill.org> on Fri, 30 Apr 2010 11:56:34 +0200
+    Georges Toth <georges@trypill.org>  Thu, 23 Jan 2013 23:51:00 +0200
 
 It was downloaded from:
 
-    <http://no url yet>
+    https://github.com/sim0nx/sendXMPP
 
 Upstream Author(s):
 
@@ -12,7 +12,7 @@ Upstream Author(s):
 
 Copyright:
 
-    <Copyright (C) 2010 Georges Toth>
+    <Copyright (C) 2013 Georges Toth>
 
 License:
 
@@ -32,5 +32,6 @@ License:
 The Debian packaging is:
 
     Copyright (C) 2010 Maurizio Minelli <m.minelli@trypill.org>
+    Copyright (C) 2013 Georges Toth <georges@trypill.org>
     and is licensed under the GPL version 3,
     see "/usr/share/common-licenses/GPL-3".

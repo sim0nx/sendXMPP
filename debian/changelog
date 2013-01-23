@@ -1,3 +1,9 @@
+sendxmpp++ (0.4-1) unstable; urgency=low
+
+  * fix build errors
+
+ -- Georges Toth <georges@trypill.org>  Thu, 23 Jan 2013 23:51:00 +0200
+
 sendxmpp++ (0.3-3) unstable; urgency=low
 
   * remove wrong distribution
