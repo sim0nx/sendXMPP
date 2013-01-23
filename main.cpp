@@ -23,6 +23,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <unistd.h>
 
 
 std::string removeSpace(const std::string &to)
