@@ -1,0 +1,10 @@
+sendXMPP++ is a simple command line utility written in C++ for
+sending XMPP messages.
+
+It uses the gloox library for handling XMPP and may be compiled
+dynamically or statically ("no" runtime deps).
+
+
+Dependencies:
+ - gloox (http://camaya.net/gloox/)
+ - gnutls
